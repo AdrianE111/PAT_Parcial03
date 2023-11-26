@@ -5,5 +5,8 @@ struct Node
 {
 	T value;
 	Node* next;
+
+	Node(T val) : value(val), next(nullptr) {}
 };
 
+ 

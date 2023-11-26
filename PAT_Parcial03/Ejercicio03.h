@@ -1,16 +1,33 @@
+#ifndef TIMEMAP_H
+#define TIMEMAP_H
+
 #pragma once
 
 #include <string>
-
-using std::string;
+#include <unordered_map>
+#include <vector>
 
 class TimeMap
 {
+private:
+    struct Pair {
+        int timestamp;
+        std::string value;
+    };
+
+    std::unordered_map<std::string, std::vector<Pair>> map;
+
 public:
-	TimeMap();
+    TimeMap();
 
-	void set(string key, string value, int timestamp);
+    void set(const std::string& key, const std::string& value, int timestamp);
 
-	string get(string key, int timestamp);
+    std::string get(const std::string& key, int timestamp);
+
+    ~TimeMap();
 };
+
+#endif
+
+
 
